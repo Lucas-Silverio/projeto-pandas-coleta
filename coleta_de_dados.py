@@ -15,7 +15,7 @@ if(df is not None):
     #salva o arquivo como excel
     if(not os.path.exists('dados_tratados/todos_dados.xlsx')):
         try:
-            df.to_excel('dados_tratados/todos_dados.xlsx')
+            df.to_excel('dados_tratados/todos_dados.xlsx',index=False)
             print('Arquivo salvo com sucesso!')
         except Exception as erro:
             print('Falha ao salvar o arquivo em excel: ',erro)
@@ -28,7 +28,7 @@ if(df is not None):
         #Filtrar Nome, Email e Data de inscrição e ordena por Nome
         dados_filtrados = sub_date_2022.loc[:,['First Name','Email','Subscription Date']].sort_values('First Name')
         try:
-            dados_filtrados.to_excel('dados_tratados/inscricao_2022.xlsx')
+            dados_filtrados.to_excel('dados_tratados/inscricao_2022.xlsx', index=False)
             print('Arquivo salvo com sucesso!, Inscrições feitas em 2022')
         except Exception as erro:
             print('Falha ao salvar o arquivo, erro: ',erro)
